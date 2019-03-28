@@ -1,3 +1,3 @@
 <?php
-
-require 'views/about.view.php';
+$name = 'Honor Agency';
+require 'views/contact.view.php';
