@@ -14,8 +14,9 @@
     <body>
         <nav>
             <ul>
-                <li><a href="/about.php">About</a></li>
-                <li><a href="/contact.php">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/about-culture">Culture</a></li>
             </ul>
         </nav>
 <!-- referencing a super global -->
