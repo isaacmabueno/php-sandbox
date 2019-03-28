@@ -1,12 +1,11 @@
 <?php
 
-require 'Task.php';
-require 'functions.php';
+$database = require 'core/bootstrap.php';
+$router = new Router;
 
-$pdo = connectToDb();
+require 'routes.php';
 
-$tasks = runAllTasks($pdo);
 
-require 'index.view.php';
+var_dump(trim($_SERVER['REQUEST_URI'], '/'));
 
- ?>
+require $router->direct('about');
