@@ -12,13 +12,22 @@ class QueryBuilder {
     }
 
     public function insert($table, $parameters) {
+
         $sql = sprintf(
-            'insert into %s (%s) values ($s)',
-            'one', 'two', 'three'
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
         );
-        die(var_dump($sql));
-        // insert into names (the_name) values (:name)
-        // insert into names (the_name, the_email) values (:name, :email)
+
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+            //you can bind your data by providing an array to the execute method
+            $statement->execute($parameters);
+        } catch (Exception $e) {
+            die('Whoops, something went wrong!');
+        }
 
     }
 }
